@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "x_ms_lease_action": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "acquire",
+                "break",
+                "change",
+                "renew",
+                "release"
+            ]
+        },
+        "x_ms_lease_duration": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "x_ms_lease_break_period": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "x_ms_lease_id": {
+            "required": false,
+            "type": "string",
+            "pattern": "^[{(]?[0-9a-f]{8}[-]?([0-9a-f]{4}[-]?){3}[0-9a-f]{12}[)}]?$"
+        },
+        "x_ms_proposed_lease_id": {
+            "required": false,
+            "type": "string",
+            "pattern": "^[{(]?[0-9a-f]{8}[-]?([0-9a-f]{4}[-]?){3}[0-9a-f]{12}[)}]?$"
+        },
+        "If_Match": {
+            "required": false,
+            "type": "string"
+        },
+        "If_None_Match": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Modified_Since": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Unmodified_Since": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

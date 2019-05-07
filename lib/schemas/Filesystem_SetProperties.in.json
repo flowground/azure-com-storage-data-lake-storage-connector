@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "timeout": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "x_ms_properties": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Modified_Since": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Unmodified_Since": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_date": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_version": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

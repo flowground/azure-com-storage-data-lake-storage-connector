@@ -1,0 +1,119 @@
+{
+    "type": "object",
+    "properties": {
+        "resource": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "directory",
+                "file"
+            ]
+        },
+        "continuation": {
+            "required": false,
+            "type": "string"
+        },
+        "mode": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "legacy",
+                "posix"
+            ]
+        },
+        "Cache_Control": {
+            "required": false,
+            "type": "string"
+        },
+        "Content_Encoding": {
+            "required": false,
+            "type": "string"
+        },
+        "Content_Language": {
+            "required": false,
+            "type": "string"
+        },
+        "Content_Disposition": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_cache_control": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_content_type": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_content_encoding": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_content_language": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_content_disposition": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_rename_source": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_lease_id": {
+            "required": false,
+            "type": "string",
+            "pattern": "^[{(]?[0-9a-f]{8}[-]?([0-9a-f]{4}[-]?){3}[0-9a-f]{12}[)}]?$"
+        },
+        "x_ms_source_lease_id": {
+            "required": false,
+            "type": "string",
+            "pattern": "^[{(]?[0-9a-f]{8}[-]?([0-9a-f]{4}[-]?){3}[0-9a-f]{12}[)}]?$"
+        },
+        "x_ms_properties": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_permissions": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_umask": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Match": {
+            "required": false,
+            "type": "string"
+        },
+        "If_None_Match": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Modified_Since": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Unmodified_Since": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_source_if_match": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_source_if_none_match": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_source_if_modified_since": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_source_if_unmodified_since": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

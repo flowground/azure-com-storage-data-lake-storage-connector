@@ -1,0 +1,250 @@
+{
+    "title": "Azure Data Lake Storage",
+    "description": "Azure Data Lake Storage provides storage for Hadoop and other big data workloads.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/storage-DataLakeStorage/2018-11-09/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://azure.local/",
+                    "https://azure.local/",
+                    "{accountName}.{dnsSuffix}",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Filesystem_List": {
+            "main": "./lib/actions/Filesystem_List.js",
+            "title": "List Filesystems",
+            "description": "List filesystems and their properties in given account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Filesystem_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Filesystem_Delete": {
+            "main": "./lib/actions/Filesystem_Delete.js",
+            "title": "Delete Filesystem",
+            "description": "Marks the filesystem for deletion.  When a filesystem is deleted, a filesystem with the same identifier cannot be created for at least 30 seconds. While the filesystem is being deleted, attempts to create a filesystem with the same identifier will fail with status code 409 (Conflict), with the service returning additional error information indicating that the filesystem is being deleted. All other operations, including operations on any files or directories within the filesystem, will fail with status code 404 (Not Found) while the filesystem is being deleted. This operation supports conditional HTTP requests.  For more information, see [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Filesystem_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Path_List": {
+            "main": "./lib/actions/Path_List.js",
+            "title": "List Paths",
+            "description": "List filesystem paths and their properties.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Path_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Filesystem_GetProperties": {
+            "main": "./lib/actions/Filesystem_GetProperties.js",
+            "title": "Get Filesystem Properties.",
+            "description": "All system and user-defined filesystem properties are specified in the response headers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Filesystem_GetProperties.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Filesystem_SetProperties": {
+            "main": "./lib/actions/Filesystem_SetProperties.js",
+            "title": "Set Filesystem Properties",
+            "description": "Set properties for the filesystem.  This operation supports conditional HTTP requests.  For more information, see [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Filesystem_SetProperties.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Filesystem_Create": {
+            "main": "./lib/actions/Filesystem_Create.js",
+            "title": "Create Filesystem",
+            "description": "Create a filesystem rooted at the specified location. If the filesystem already exists, the operation fails.  This operation does not support conditional HTTP requests.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Filesystem_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Path_Delete": {
+            "main": "./lib/actions/Path_Delete.js",
+            "title": "Delete File | Delete Directory",
+            "description": "Delete the file or directory. This operation supports conditional HTTP requests.  For more information, see [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Path_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Path_Read": {
+            "main": "./lib/actions/Path_Read.js",
+            "title": "Read File",
+            "description": "Read the contents of a file.  For read operations, range requests are supported. This operation supports conditional HTTP requests.  For more information, see [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Path_Read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Path_GetProperties": {
+            "main": "./lib/actions/Path_GetProperties.js",
+            "title": "Get Properties | Get Status | Get Access Control List",
+            "description": "Get Properties returns all system and user defined properties for a path. Get Status returns all system defined properties for a path. Get Access Control List returns the access control list for a path. This operation supports conditional HTTP requests.  For more information, see [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Path_GetProperties.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Path_Update": {
+            "main": "./lib/actions/Path_Update.js",
+            "title": "Append Data | Flush Data | Set Properties | Set Access Control",
+            "description": "Uploads data to be appended to a file, flushes (writes) previously uploaded data to a file, sets properties for a file or directory, or sets access control for a file or directory. Data can only be appended to a file. This operation supports conditional HTTP requests. For more information, see [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/octet-stream": "application/octet-stream",
+                        "text/plain": "text/plain"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Path_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Path_Lease": {
+            "main": "./lib/actions/Path_Lease.js",
+            "title": "Lease Path",
+            "description": "Create and manage a lease to restrict write and delete access to the path. This operation supports conditional HTTP requests.  For more information, see [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Path_Lease.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Path_Create": {
+            "main": "./lib/actions/Path_Create.js",
+            "title": "Create File | Create Directory | Rename File | Rename Directory",
+            "description": "Create or rename a file or directory.    By default, the destination is overwritten and if the destination already exists and has a lease the lease is broken.  This operation supports conditional HTTP requests.  For more information, see [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  To fail if the destination already exists, use a conditional request with If-None-Match: \"*\".",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Path_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

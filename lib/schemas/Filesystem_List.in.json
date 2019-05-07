@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "resource": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "account"
+            ]
+        },
+        "prefix": {
+            "required": false,
+            "type": "string"
+        },
+        "continuation": {
+            "required": false,
+            "type": "string"
+        },
+        "maxResults": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "timeout": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "x_ms_client_request_id": {
+            "required": false,
+            "type": "string",
+            "pattern": "^[{(]?[0-9a-f]{8}[-]?([0-9a-f]{4}[-]?){3}[0-9a-f]{12}[)}]?$"
+        },
+        "x_ms_date": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_version": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

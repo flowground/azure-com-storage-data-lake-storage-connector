@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "directory": {
+            "required": false,
+            "type": "string"
+        },
+        "recursive": {
+            "required": true,
+            "type": "boolean"
+        },
+        "continuation": {
+            "required": false,
+            "type": "string"
+        },
+        "maxResults": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "upn": {
+            "required": false,
+            "type": "boolean"
+        },
+        "x_ms_version": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

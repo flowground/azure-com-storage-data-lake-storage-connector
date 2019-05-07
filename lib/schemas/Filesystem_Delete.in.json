@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "timeout": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "If_Modified_Since": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Unmodified_Since": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_client_request_id": {
+            "required": false,
+            "type": "string",
+            "pattern": "^[{(]?[0-9a-f]{8}[-]?([0-9a-f]{4}[-]?){3}[0-9a-f]{12}[)}]?$"
+        },
+        "x_ms_date": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_version": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

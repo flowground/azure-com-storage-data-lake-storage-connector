@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "filesystem": {
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[$a-z0-9](?!.*--)[-a-z0-9]{1,61}[a-z0-9]$"
+        },
+        "resource": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "filesystem"
+            ]
+        },
+        "timeout": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "x_ms_client_request_id": {
+            "required": false,
+            "type": "string",
+            "pattern": "^[{(]?[0-9a-f]{8}[-]?([0-9a-f]{4}[-]?){3}[0-9a-f]{12}[)}]?$"
+        },
+        "x_ms_date": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_version": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,99 @@
+{
+    "type": "object",
+    "properties": {
+        "action": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "append",
+                "flush",
+                "setProperties",
+                "setAccessControl"
+            ]
+        },
+        "position": {
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+        },
+        "retainUncommittedData": {
+            "required": false,
+            "type": "boolean"
+        },
+        "close": {
+            "required": false,
+            "type": "boolean"
+        },
+        "requestBody": {
+            "format": "file",
+            "type": "object"
+        },
+        "Content_Length": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+        },
+        "x_ms_lease_id": {
+            "required": false,
+            "type": "string",
+            "pattern": "^[{(]?[0-9a-f]{8}[-]?([0-9a-f]{4}[-]?){3}[0-9a-f]{12}[)}]?$"
+        },
+        "x_ms_cache_control": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_content_type": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_content_disposition": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_content_encoding": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_content_language": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_properties": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_owner": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_group": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_permissions": {
+            "required": false,
+            "type": "string"
+        },
+        "x_ms_acl": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Match": {
+            "required": false,
+            "type": "string"
+        },
+        "If_None_Match": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Modified_Since": {
+            "required": false,
+            "type": "string"
+        },
+        "If_Unmodified_Since": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
